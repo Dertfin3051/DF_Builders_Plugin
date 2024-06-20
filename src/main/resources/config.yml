@@ -1,0 +1,4 @@
+motd:
+  motd-values:
+    - "Motd 1"
+    - "Motd 2"
