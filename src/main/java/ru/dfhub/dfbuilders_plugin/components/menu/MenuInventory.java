@@ -24,7 +24,7 @@ public class MenuInventory {
         clearButton.setItemMeta(clearButtonMeta);
         inventory.setItem(11, clearButton);
 
-        ItemStack spawnTeleport = new ItemStack(Material.ENDER_PEARL, 1);
+        ItemStack spawnTeleport = new ItemStack(Material.ENDER_EYE, 1);
         ItemMeta spawnTeleportMeta = spawnTeleport.getItemMeta();
         spawnTeleportMeta.displayName(
                 Component.text("Телепорт на спавн", TextColor.color(0, 255, 0), TextDecoration.BOLD)
@@ -32,6 +32,7 @@ public class MenuInventory {
         spawnTeleport.setItemMeta(spawnTeleportMeta);
         inventory.setItem(13, spawnTeleport);
 
+        /*
         ItemStack soon = new ItemStack(Material.GRAY_STAINED_GLASS, 1);
         ItemMeta soonMeta = soon.getItemMeta();
         soonMeta.displayName(
@@ -39,6 +40,17 @@ public class MenuInventory {
         );
         soon.setItemMeta(soonMeta);
         inventory.setItem(15, soon);
+        */
+
+
+        ItemStack teleportToPlayer = new ItemStack(Material.ENDER_PEARL, 1);
+        ItemMeta teleportToPlayerMeta = spawnTeleport.getItemMeta();
+        teleportToPlayerMeta.displayName(
+                Component.text("Телепорт к другому игроку", TextColor.color(0, 255, 0), TextDecoration.BOLD)
+        );
+        teleportToPlayer.setItemMeta(teleportToPlayerMeta);
+        inventory.setItem(15, teleportToPlayer);
+
 
         InventoryFiller iv = new InventoryFiller();
         inventory = iv.getFilledInventory(inventory);

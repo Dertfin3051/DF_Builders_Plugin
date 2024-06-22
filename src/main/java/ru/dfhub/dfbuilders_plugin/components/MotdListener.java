@@ -20,6 +20,7 @@ public class MotdListener implements Listener {
         //FileConfiguration config = DFBuilders_Plugin.getInstance().getConfig();
 
         //List<String> motdList = config.getStringList("motd.motd-values");
+
         List<String> motdList = List.of(
                 "Говорят, тут хотели построить Вавилонскую башню",
                 "Го к нам строить",
@@ -31,6 +32,7 @@ public class MotdListener implements Listener {
                 "Вайп на сервере без вайпов?",
                 "dertfin1 следит за тобой..."
         );
+
         Random random = new Random();
         int el = random.nextInt(motdList.size()); // Номер случайного элемента из motdList
 

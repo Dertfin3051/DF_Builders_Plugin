@@ -1,8 +1,10 @@
 name: DFBuilders_Plugin
-version: '1.0'
+version: '1.1'
 main: ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin
 api-version: '1.20'
 
 commands:
   menu:
     usage: /menu
+  playertp:
+    usage: playertp

@@ -27,6 +27,9 @@ public class MenuListener implements Listener {
             case 13:
                 spawn(player);
                 break;
+            case 15:
+                playertp(player);
+                break;
         }
     }
 
@@ -44,5 +47,10 @@ public class MenuListener implements Listener {
 
     private static void spawn(Player player) {
         player.teleport(new Location(Bukkit.getWorld("world"),0, -60, 0));
+    }
+
+    private static void playertp(Player player) {
+        player.closeInventory();
+        player.chat("/playertp");
     }
 }
