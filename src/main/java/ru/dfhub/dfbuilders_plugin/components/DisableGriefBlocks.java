@@ -13,6 +13,7 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 
 import java.util.List;
 
+@Deprecated
 public class DisableGriefBlocks implements Listener {
 
     @EventHandler

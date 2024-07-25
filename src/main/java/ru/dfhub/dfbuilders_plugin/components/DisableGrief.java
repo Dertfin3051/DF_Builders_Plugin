@@ -10,7 +10,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 
 import java.net.http.WebSocket;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DisableGrief implements Listener {
 
@@ -19,8 +21,18 @@ public class DisableGrief implements Listener {
             Material.TNT_MINECART,
             Material.END_CRYSTAL,
             Material.RESPAWN_ANCHOR,
-            Material.FLINT_AND_STEEL
+            Material.FLINT_AND_STEEL,
+            Material.OAK_BOAT, Material.OAK_CHEST_BOAT,
+            Material.SPRUCE_BOAT, Material.SPRUCE_CHEST_BOAT,
+            Material.BIRCH_BOAT, Material.BIRCH_CHEST_BOAT,
+            Material.JUNGLE_BOAT, Material.JUNGLE_CHEST_BOAT,
+            Material.ACACIA_BOAT, Material.ACACIA_CHEST_BOAT,
+            Material.DARK_OAK_BOAT, Material.DARK_OAK_CHEST_BOAT,
+            Material.MANGROVE_BOAT, Material.MANGROVE_CHEST_BOAT,
+            Material.CHERRY_BOAT, Material.CHERRY_CHEST_BOAT,
+            Material.BAMBOO_RAFT, Material.BAMBOO_CHEST_RAFT
     );
+
 
     private static final Component PREVENTED_ITEM_MESSAGE = Component.text(
             "Данный предмет запрещён на сервере!",
@@ -31,7 +43,8 @@ public class DisableGrief implements Listener {
     public void onInventoryClick(InventoryClickEvent e) {
         Player player = (Player) e.getWhoClicked();
 
-        // TODO: Добавить обход ограничений по пермишену dfbuilders.anti-prevent.block
+        if (player.hasPermission("dfbuiders.anti-prevent")) return;
+
         for (Material el: preventedItems) {
             if (player.getInventory().contains(el)) {
                 e.setCancelled(true);
@@ -44,6 +57,8 @@ public class DisableGrief implements Listener {
     @EventHandler
     public void onDropItem(PlayerDropItemEvent e) {
         Player player = (Player) e.getPlayer();
+
+        if (player.hasPermission("dfbuiders.anti-prevent")) return;
 
         for (Material el: preventedItems) {
             if (e.getItemDrop().getItemStack().getType() == el) {
