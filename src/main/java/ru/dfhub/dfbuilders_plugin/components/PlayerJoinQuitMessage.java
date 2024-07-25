@@ -6,6 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import ru.dfhub.dfbuilders_plugin.utils.logger.Logger;
+import ru.dfhub.dfbuilders_plugin.utils.logger.LoggerType;
 
 import java.net.http.WebSocket;
 
@@ -26,6 +28,7 @@ public class PlayerJoinQuitMessage implements Listener {
                                 " присоединился", TextColor.fromHexString(MESSAGE_COLOR)
                         ))
         );
+        Logger.log(LoggerType.SESSIONS, "[+] %s".formatted(event.getPlayer().displayName()));
     }
 
     @EventHandler
@@ -41,5 +44,6 @@ public class PlayerJoinQuitMessage implements Listener {
                                 " вышел", TextColor.fromHexString(MESSAGE_COLOR)
                         ))
         );
+        Logger.log(LoggerType.SESSIONS, "[-] %s".formatted(event.getPlayer().displayName()));
     }
 }

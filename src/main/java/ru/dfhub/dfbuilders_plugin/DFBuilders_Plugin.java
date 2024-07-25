@@ -9,6 +9,7 @@ import ru.dfhub.dfbuilders_plugin.components.menu.MenuListener;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportListener;
 import ru.dfhub.dfbuilders_plugin.utils.logger.Logger;
+import ru.dfhub.dfbuilders_plugin.utils.logger.LoggerType;
 
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.io.IOException;
@@ -52,12 +53,17 @@ public final class DFBuilders_Plugin extends JavaPlugin {
             Logger.init();
         } catch (IOException e) {
             Bukkit.getLogger().log(Level.WARNING, "THERE IS ERROR OCCURRED IN LOGGER INIT");
+            Bukkit.getLogger().log(Level.WARNING, e.getMessage());
         }
+
+        Logger.log(LoggerType.SESSIONS, "Server started!");
+        Logger.log(LoggerType.ALERTS, "Server started!");
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Logger.log(LoggerType.SESSIONS, "Server disabled!");
+        Logger.log(LoggerType.ALERTS, "Server disabled!");
     }
 
     public  static DFBuilders_Plugin getInstance() {
