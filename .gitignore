@@ -2,3 +2,6 @@
 .idea
 build
 .kotlin
+.idea/
+build/
+.kotlin/
