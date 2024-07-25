@@ -1,5 +1,6 @@
 package ru.dfhub.dfbuilders_plugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.dfhub.dfbuilders_plugin.components.*;
@@ -7,8 +8,12 @@ import ru.dfhub.dfbuilders_plugin.components.menu.MenuCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.MenuListener;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportListener;
+import ru.dfhub.dfbuilders_plugin.utils.logger.Logger;
 
+import javax.swing.plaf.basic.BasicButtonUI;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
 
 public final class DFBuilders_Plugin extends JavaPlugin {
 
@@ -41,6 +46,12 @@ public final class DFBuilders_Plugin extends JavaPlugin {
 
         for (Listener listener: listeners) {
             getServer().getPluginManager().registerEvents(listener, this);
+        }
+
+        try {
+            Logger.init();
+        } catch (IOException e) {
+            Bukkit.getLogger().log(Level.WARNING, "THERE IS ERROR OCCURRED IN LOGGER INIT");
         }
     }
 
