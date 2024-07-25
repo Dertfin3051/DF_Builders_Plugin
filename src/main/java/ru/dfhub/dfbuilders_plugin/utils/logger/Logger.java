@@ -30,6 +30,7 @@ public final class Logger {
 
         if (!sessionsFile.exists()) sessionsFile.createNewFile();
         if (!alertsFile.exists()) alertsFile.createNewFile();
+
     }
 
     public static void log(LoggerType loggerType, String message) {

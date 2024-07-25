@@ -20,7 +20,6 @@ public final class DFBuilders_Plugin extends JavaPlugin {
 
     private static DFBuilders_Plugin instance;
 
-    // TODO Добавить в папку DFBuilders_Plugin папку logs с логами о заходе/выходе и о взятии запрещённых предметов
     // TODO Перенести возможные MOTD в DFBuilders_Plugin/config.json
 
     @Override
