@@ -14,6 +14,9 @@ public final class DFBuilders_Plugin extends JavaPlugin {
 
     private static DFBuilders_Plugin instance;
 
+    // TODO Добавить в папку DFBuilders_Plugin папку logs с логами о заходе/выходе и о взятии запрещённых предметов
+    // TODO Перенести возможные MOTD в DFBuilders_Plugin/config.json
+
     @Override
     public void onEnable() {
         instance = this;
@@ -32,22 +35,9 @@ public final class DFBuilders_Plugin extends JavaPlugin {
            new DisableOtherWorlds(),
            new DisableAdvs(),
            new MenuListener(),
-           new PlayerTeleportListener()
+           new PlayerTeleportListener(),
+           new DisableGrief()
         );
-
-        /*
-        getServer().getPluginManager().registerEvents(new NewPlayerBlockHandler(), this);
-        getServer().getPluginManager().registerEvents(new PlayerJoinQuitMessage(), this);
-        getServer().getPluginManager().registerEvents(new SpawnProtect(), this);
-        getServer().getPluginManager().registerEvents(new Chat(), this);
-
-        getServer().getPluginManager().registerEvents(new MotdListener(), this);
-        getServer().getPluginManager().registerEvents(new DisableOtherWorlds(), this);
-        getServer().getPluginManager().registerEvents(new DisableAdvs(), this);
-        //getServer().getPluginManager().registerEvents(new DisableGriefBlocks(), this);
-        getServer().getPluginManager().registerEvents(new MenuListener(), this);
-        getServer().getPluginManager().registerEvents(new PlayerTeleportListener(), this);
-         */
 
         for (Listener listener: listeners) {
             getServer().getPluginManager().registerEvents(listener, this);

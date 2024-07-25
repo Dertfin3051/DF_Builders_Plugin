@@ -7,7 +7,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 
 import java.net.http.WebSocket;
 import java.util.Arrays;
@@ -62,6 +65,33 @@ public class DisableGrief implements Listener {
 
         for (Material el: preventedItems) {
             if (e.getItemDrop().getItemStack().getType() == el) {
+                e.setCancelled(true);
+                player.getInventory().remove(el);
+                player.sendMessage(PREVENTED_ITEM_MESSAGE);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onInteract(PlayerInteractEvent e) {
+        Player player = (Player) e.getPlayer();
+
+        if (player.hasPermission("dfbuiders.anti-prevent")) return;
+
+        for (Material el: preventedItems) {
+            if (e.getPlayer().getInventory().contains(el)) {
+                e.getPlayer().getInventory().remove(el);
+                player.sendMessage(PREVENTED_ITEM_MESSAGE);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onItemHold(InventoryMoveItemEvent e) {
+        Player player = (Player) e.getDestination().getViewers().getFirst();
+
+        for (Material el: preventedItems) {
+            if (e.getItem().getType() == el) {
                 e.setCancelled(true);
                 player.sendMessage(PREVENTED_ITEM_MESSAGE);
             }
