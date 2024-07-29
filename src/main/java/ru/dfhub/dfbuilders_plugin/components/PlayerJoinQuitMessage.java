@@ -1,11 +1,14 @@
 package ru.dfhub.dfbuilders_plugin.components;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import ru.dfhub.dfbuilders_plugin.utils.logger.Logger;
+import ru.dfhub.dfbuilders_plugin.utils.logger.LoggerType;
 
 import java.net.http.WebSocket;
 
@@ -26,6 +29,7 @@ public class PlayerJoinQuitMessage implements Listener {
                                 " присоединился", TextColor.fromHexString(MESSAGE_COLOR)
                         ))
         );
+        Logger.log(LoggerType.SESSIONS, "[+] %s".formatted(((TextComponent)event.getPlayer().displayName()).content()));
     }
 
     @EventHandler
@@ -41,5 +45,6 @@ public class PlayerJoinQuitMessage implements Listener {
                                 " вышел", TextColor.fromHexString(MESSAGE_COLOR)
                         ))
         );
+        Logger.log(LoggerType.SESSIONS, "[-] %s".formatted(((TextComponent)event.getPlayer().displayName()).content()));
     }
 }
