@@ -7,4 +7,6 @@ commands:
   menu:
     usage: /menu
   playertp:
-    usage: playertp
+    usage: /playertp
+  world:
+    usage: /world

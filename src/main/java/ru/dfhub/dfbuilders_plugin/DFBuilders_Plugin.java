@@ -8,6 +8,8 @@ import ru.dfhub.dfbuilders_plugin.components.menu.MenuCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.MenuListener;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportListener;
+import ru.dfhub.dfbuilders_plugin.components.world.WorldCommand;
+import ru.dfhub.dfbuilders_plugin.components.world.WorldCompleter;
 import ru.dfhub.dfbuilders_plugin.utils.logger.Logger;
 import ru.dfhub.dfbuilders_plugin.utils.logger.LoggerType;
 
@@ -30,6 +32,9 @@ public final class DFBuilders_Plugin extends JavaPlugin {
 
         getCommand("menu").setExecutor(new MenuCommand());
         getCommand("playertp").setExecutor(new PlayerTeleportCommand());
+
+        getCommand("world").setExecutor(new WorldCommand());
+        getCommand("world").setTabCompleter(new WorldCompleter());
 
         List<Listener> listeners = List.of(
            new NewPlayerBlockHandler(),
