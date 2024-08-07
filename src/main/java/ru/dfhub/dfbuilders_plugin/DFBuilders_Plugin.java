@@ -2,18 +2,17 @@ package ru.dfhub.dfbuilders_plugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.dfhub.dfbuilders_plugin.components.*;
+import ru.dfhub.dfbuilders_plugin.components.menu.DisableSpamKick;
 import ru.dfhub.dfbuilders_plugin.components.menu.MenuCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.MenuListener;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportListener;
-import ru.dfhub.dfbuilders_plugin.components.world.WorldCommand;
-import ru.dfhub.dfbuilders_plugin.components.world.WorldCompleter;
 import ru.dfhub.dfbuilders_plugin.utils.logger.Logger;
 import ru.dfhub.dfbuilders_plugin.utils.logger.LoggerType;
 
-import javax.swing.plaf.basic.BasicButtonUI;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,9 +32,6 @@ public final class DFBuilders_Plugin extends JavaPlugin {
         getCommand("menu").setExecutor(new MenuCommand());
         getCommand("playertp").setExecutor(new PlayerTeleportCommand());
 
-        getCommand("world").setExecutor(new WorldCommand());
-        getCommand("world").setTabCompleter(new WorldCompleter());
-
         List<Listener> listeners = List.of(
            new NewPlayerBlockHandler(),
            new PlayerJoinQuitMessage(),
@@ -46,7 +42,8 @@ public final class DFBuilders_Plugin extends JavaPlugin {
            new DisableAdvs(),
            new MenuListener(),
            new PlayerTeleportListener(),
-           new DisableGrief()
+           new DisableGrief(),
+           new DisableSpamKick()
         );
 
         for (Listener listener: listeners) {
@@ -62,6 +59,7 @@ public final class DFBuilders_Plugin extends JavaPlugin {
 
         Logger.log(LoggerType.SESSIONS, "Server started!");
         Logger.log(LoggerType.ALERTS, "Server started!");
+
     }
 
     @Override
@@ -73,4 +71,5 @@ public final class DFBuilders_Plugin extends JavaPlugin {
     public  static DFBuilders_Plugin getInstance() {
         return instance;
     }
+
 }
