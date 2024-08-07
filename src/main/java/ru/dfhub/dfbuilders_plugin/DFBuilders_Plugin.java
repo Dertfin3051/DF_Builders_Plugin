@@ -5,7 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.dfhub.dfbuilders_plugin.components.*;
-import ru.dfhub.dfbuilders_plugin.components.menu.DisableSpamKick;
+import ru.dfhub.dfbuilders_plugin.components.DisableSpamKick;
 import ru.dfhub.dfbuilders_plugin.components.menu.MenuCommand;
 import ru.dfhub.dfbuilders_plugin.components.menu.MenuListener;
 import ru.dfhub.dfbuilders_plugin.components.menu.player_teleport.PlayerTeleportCommand;
