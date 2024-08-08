@@ -10,20 +10,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 
+/**
+ * Класс для работы с логами
+ */
 public final class Logger {
 
-    /*
-    public static final String SESSION_FILE_PATH = "/plugins/DFBuilders_Plugin/logs/sessions.log.txt";
-    public static final String ALERTS_FILE_PATH = "/plugins/DFBuilders_Plugin/logs/alerts.log.txt";
-
-
-     */
-
+    // Пути к логам о сессиях(вход/выход) и алертах относительно корня
     public static final String SESSION_FILE_PATH = "plugins/DFBuilders_Plugin/logs/sessions.log.txt";
     public static final String ALERTS_FILE_PATH = "plugins/DFBuilders_Plugin/logs/alerts.log.txt";
 
+    // Формат логов
     private static final String LOG_FORMAT = "[{date}] {message}\n";
 
+    /**
+     * Инициализация логгера.
+     * Проверка на существование файлов и создание
+     * их в случае отсутствия
+     * @throws IOException Ошибки ввода-вывода
+     */
     public static void init() throws IOException {
         File sessionsFile = new File(SESSION_FILE_PATH);
         File alertsFile = new File(ALERTS_FILE_PATH);
@@ -33,6 +37,11 @@ public final class Logger {
 
     }
 
+    /**
+     * Отправка и сохранение логов
+     * @param loggerType Тип лога. Сессия/алерт
+     * @param message Содержимое лога
+     */
     public static void log(LoggerType loggerType, String message) {
         if (loggerType == LoggerType.SESSIONS) {
             try {
@@ -60,6 +69,11 @@ public final class Logger {
                 .replace("{message}", message);
     }
 
+    /**
+     * Метод для получения времени в формате
+     * день.месяц.год час:минуты
+     * @return Время в формате String
+     */
     private static String getFormattedTime() {
         LocalDateTime time = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm"); // Пример 30.10.2009 14:42

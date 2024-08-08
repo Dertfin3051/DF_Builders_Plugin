@@ -6,6 +6,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
+/**
+ * Отключение ада и энда
+ */
 public class DisableOtherWorlds implements Listener {
 
     @EventHandler

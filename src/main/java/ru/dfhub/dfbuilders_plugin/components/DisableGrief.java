@@ -20,6 +20,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Отключение всех предметов, которые нагружают сервер
+ * или ипользуются для грифа
+ */
 public class DisableGrief implements Listener {
 
     private static final List<Material> preventedItems = List.of(
@@ -113,7 +117,4 @@ public class DisableGrief implements Listener {
         );
         Logger.log(LoggerType.ALERTS, message);
     }
-
-    // TODO: Добавить полный список запрещенных предметов и обработать выкидывание их из инветаря.
-    // TODO: Зарегистировать этот класс в плагине
 }

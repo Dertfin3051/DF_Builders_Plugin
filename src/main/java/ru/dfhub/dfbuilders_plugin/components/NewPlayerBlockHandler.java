@@ -8,9 +8,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import java.net.http.WebSocket;
-
+/**
+ * Запрет на ломание блоков новым игрокам
+ */
 public class NewPlayerBlockHandler implements Listener {
+
+    /*
+    Блоки могут ломать только игроки с ролью builder
+    * они имеют пермишн dfbuilders.level.2
+     */
 
     @EventHandler
     public void onBlockPlaced(BlockPlaceEvent event) {

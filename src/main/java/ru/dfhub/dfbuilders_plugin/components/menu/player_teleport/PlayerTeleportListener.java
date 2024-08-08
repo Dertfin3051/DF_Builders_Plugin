@@ -1,7 +1,6 @@
 package ru.dfhub.dfbuilders_plugin.components.menu.player_teleport;
 
 import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,6 +9,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin;
 
+/**
+ * Основная логика меню телепорта к игрокам
+ */
 public class PlayerTeleportListener implements Listener {
 
     private static final String MENU_METADATA = "openedPlayerTeleportMenu";

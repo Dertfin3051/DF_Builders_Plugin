@@ -10,6 +10,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import ru.dfhub.dfbuilders_plugin.utils.InventoryFiller;
 
+/**
+ * Инвентарь для `/menu`
+ */
 public class MenuInventory {
     private Inventory inventory;
 

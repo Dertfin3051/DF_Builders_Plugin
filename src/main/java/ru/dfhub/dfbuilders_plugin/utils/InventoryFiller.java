@@ -5,11 +5,13 @@ import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
-
+/**
+ * Класс, отвечающий за заполнение пустых слотов в меню
+ */
 public class InventoryFiller {
-    private ItemStack inventoryFiller;
+    private final ItemStack inventoryFiller;
 
     public InventoryFiller() {
         inventoryFiller = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
@@ -18,10 +20,18 @@ public class InventoryFiller {
         inventoryFiller.setItemMeta(itemMeta);
     }
 
+    /**
+     * @return Возвращает предмет, которым заполняется инвентарь
+     */
     public ItemStack getInventoryFiller() {
         return inventoryFiller;
     }
 
+    /**
+     * Заполняет свободные слоты инвенторя
+     * @param inventory Инвентарь, который нужно заполнить
+     * @return Возвращает инвентарь с заполненными пустыми слотами
+     */
     public Inventory getFilledInventory(Inventory inventory) {
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) == null) {

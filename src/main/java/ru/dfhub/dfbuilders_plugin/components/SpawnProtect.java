@@ -7,6 +7,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
+/**
+ * Защита спавна от грифа
+ */
 public class SpawnProtect implements Listener {
 
     @EventHandler
@@ -37,8 +40,11 @@ public class SpawnProtect implements Listener {
         }
     }
 
-    /*
-    Пределы спавна - 10 блоков в каждую сторону от нуля
+    /**
+     * Является ли блок на указанной координате спавном
+     * @param x X
+     * @param z Z
+     * @return Находится ли блок на спавне
      */
     private boolean isOnSpawn(int x, int z) {
         return x >= -10 && x <= 10 && z >= -10 && z <= 10;

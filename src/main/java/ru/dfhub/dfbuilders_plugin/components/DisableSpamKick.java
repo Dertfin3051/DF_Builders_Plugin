@@ -5,6 +5,9 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerKickEvent;
 
+/**
+ * Отключения выкидывания за спам командами
+ */
 public class DisableSpamKick implements Listener {
 
     /**

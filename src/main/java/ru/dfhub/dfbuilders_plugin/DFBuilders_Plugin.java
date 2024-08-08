@@ -17,17 +17,19 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 
+/**
+ * Основной класс
+ */
 public final class DFBuilders_Plugin extends JavaPlugin {
 
     private static DFBuilders_Plugin instance;
 
-    // TODO Перенести возможные MOTD в DFBuilders_Plugin/config.json
-
+    /**
+     * Метод, с логикой включения плагина
+     */
     @Override
     public void onEnable() {
         instance = this;
-        // Plugin startup logic
-        //saveDefaultConfig();
 
         getCommand("menu").setExecutor(new MenuCommand());
         getCommand("playertp").setExecutor(new PlayerTeleportCommand());
@@ -44,15 +46,16 @@ public final class DFBuilders_Plugin extends JavaPlugin {
            new PlayerTeleportListener(),
            new DisableGrief(),
            new DisableSpamKick()
-        );
+        ); // Список всех ивентов
 
         for (Listener listener: listeners) {
             getServer().getPluginManager().registerEvents(listener, this);
-        }
+        } // Включение ивентов из listeners
 
         try {
             Logger.init();
-        } catch (IOException e) {
+        } // Инициализация логов
+        catch (IOException e) {
             Bukkit.getLogger().log(Level.WARNING, "THERE IS ERROR OCCURRED IN LOGGER INIT");
             Bukkit.getLogger().log(Level.WARNING, e.getMessage());
         }
@@ -62,6 +65,9 @@ public final class DFBuilders_Plugin extends JavaPlugin {
 
     }
 
+    /**
+     * Метод, с логикой выключения плагина
+     */
     @Override
     public void onDisable() {
         Logger.log(LoggerType.SESSIONS, "Server disabled!");

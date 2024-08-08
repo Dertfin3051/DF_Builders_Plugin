@@ -2,20 +2,18 @@ package ru.dfhub.dfbuilders_plugin.components;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.ServerListPingEvent;
-import org.bukkit.util.CachedServerIcon;
-import ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin;
 import ru.dfhub.dfbuilders_plugin.utils.Config;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Изменнение MOTD сервера на рандомные
+ * варианты из конфига
+ */
 public class MotdListener implements Listener {
 
     @EventHandler

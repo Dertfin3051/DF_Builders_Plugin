@@ -4,20 +4,24 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.List;
 
+/**
+ * Инвентарь для меню телепорта к игрокам
+ */
 public class PlayerTeleportInventory {
     private Inventory inventory;
 
+    /**
+     * Создание пустого инвенторя вместе с объектом
+     */
     public PlayerTeleportInventory() {
         inventory = Bukkit.createInventory(null, 27, "Телепортироваться к игроку...");
     }

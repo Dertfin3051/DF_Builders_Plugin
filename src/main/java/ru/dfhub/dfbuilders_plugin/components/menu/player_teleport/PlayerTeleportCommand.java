@@ -5,7 +5,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 import ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin;
@@ -13,6 +12,9 @@ import ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Команда `/playertp`
+ */
 public class PlayerTeleportCommand implements CommandExecutor {
 
     @Override

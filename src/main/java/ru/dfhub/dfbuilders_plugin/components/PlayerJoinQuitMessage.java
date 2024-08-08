@@ -12,9 +12,12 @@ import ru.dfhub.dfbuilders_plugin.utils.logger.LoggerType;
 
 import java.net.http.WebSocket;
 
+/**
+ * Изменение сообщений о заходе игрока
+ */
 public class PlayerJoinQuitMessage implements Listener {
 
-    static final String MESSAGE_COLOR = "#FED713";
+    private static final String MESSAGE_COLOR = "#FED713";
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {

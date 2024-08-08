@@ -9,8 +9,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin;
 
-import java.net.http.WebSocket;
-
+/**
+ * Основная логика `/menu`
+ */
 public class MenuListener implements Listener {
 
     @EventHandler

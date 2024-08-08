@@ -3,8 +3,10 @@ package ru.dfhub.dfbuilders_plugin.components;
 import com.destroystokyo.paper.event.player.PlayerAdvancementCriterionGrantEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 
+/**
+ * Отключение ачивок
+ */
 public class DisableAdvs implements Listener {
 
     @EventHandler
