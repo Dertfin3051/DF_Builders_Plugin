@@ -1,5 +1,5 @@
 name: DFBuilders_Plugin
-version: '1.2_(1.21-update)'
+version: '1.2'
 main: ru.dfhub.dfbuilders_plugin.DFBuilders_Plugin
 api-version: '1.21'
 

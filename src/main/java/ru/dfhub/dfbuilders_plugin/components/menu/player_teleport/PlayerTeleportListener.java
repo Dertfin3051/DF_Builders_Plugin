@@ -29,7 +29,6 @@ public class PlayerTeleportListener implements Listener {
         if (targetPlayer != null) {
             teleportToPlayer(player, targetPlayer);
         }
-
     }
 
     @EventHandler
